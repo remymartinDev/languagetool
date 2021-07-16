@@ -4222,7 +4222,7 @@ though, and has since been slightly modified)-->
     <category id="CAT_HOMONYMES_PARONYMES" name="Confusion d’homonymes et paronymes">
         <rule id="ANOMAL_ANORMAL" name="anomal ou anormal" default="temp_off">
             <antipattern>
-              <token regexp="yes">magnétiques?|Zeeman|monismes?|diffusions?|dispersions?|diffractions?|commutations?|produits?|biens?|biréfringences?</token>
+              <token regexp="yes">astéroïdes?|magnétiques?|Zeeman|monismes?|diffusions?|dispersions?|diffractions?|commutations?|produits?|biens?|biréfringences?</token>
               <token regexp="yes">anoma(l(es?)?|aux)</token>
             </antipattern>
             <pattern>

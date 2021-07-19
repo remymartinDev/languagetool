@@ -4222,7 +4222,7 @@ though, and has since been slightly modified)-->
     <category id="CAT_HOMONYMES_PARONYMES" name="Confusion d’homonymes et paronymes">
         <rule id="ANOMAL_ANORMAL" name="anomal ou anormal" default="temp_off">
             <antipattern>
-              <token regexp="yes">astéroïdes?|magnétiques?|Zeeman|monismes?|diffusions?|dispersions?|diffractions?|commutations?|produits?|biens?|biréfringences?</token>
+              <token regexp="yes">pluriels?|déclinaisons?|comètes?|magnétiques?|Zeeman|monismes?|diffusions?|dispersions?|diffractions?|commutations?|produits?|biens?|biréfringences?</token>
               <token regexp="yes">anoma(l(es?)?|aux)</token>
             </antipattern>
             <pattern>
@@ -4230,8 +4230,10 @@ though, and has since been slightly modified)-->
               <token regexp="yes">anoma(l(es?)?|aux)</token>
                 </marker>
             </pattern>
-            <message><match no="1" regexp_match="(anoma(l(es?)?|aux))" regexp_replace="$1"/> est généralement utilisé en sciences et grammaire 'Qui présente un caractère d'irrégularité par rapport à un type, une norme.(Technique)' Vouliez-vous dire <suggestion><match no="1" regexp_match="(ano)(ma(l(es?)?|aux))" regexp_replace="$1r$2"/></suggestion> 'Contraire à la norme, insolite, inhabituel.(Courant)'</message>
-            <example correction="anormal">Cet évènement peut paraitre comme <marker>anomal</marker> au vu des statistiques habituelles.</example>
+            <message>'<match no="1" regexp_match="(anoma(l(es?)?|aux))" regexp_replace="$1"/>' est généralement utilisé en sciences et grammaire 'Qui présente un caractère d'irrégularité par rapport à un type, une norme.(Technique)'. Vouliez-vous dire '<suggestion><match no="1" regexp_match="(ano)(ma(l(es?)?|aux))" regexp_replace="$1r$2"/></suggestion>' 'Contraire à la norme, insolite, inhabituel.(Courant)'</message>
+            <example correction="anormale">Cette colère est <marker>anomale</marker> étant donné le calme dont il fait preuve habituellement.</example>
+            <example>Les scientifiques ont observé une queue de comète anomale.</example>
+            <example>Le mot 'oeil' a un pluriel anomal.</example>
         </rule>
         <rule id="ES_TU" name="es-tu" default="temp_off">
             <pattern>

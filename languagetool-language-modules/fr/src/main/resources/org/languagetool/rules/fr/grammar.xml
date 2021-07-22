@@ -8535,9 +8535,8 @@ though, and has since been slightly modified)-->
                         <token>c'</token>
                         <token>est</token>
                     </marker>
-                    <token postag=". m s" postag_regexp="yes" inflected="yes" regexp="yes">&elision_regexp;
+                    <token postag="N m s" postag_regexp="yes" inflected="yes" regexp="yes">&elision_regexp;
                         <exception>incognito</exception>
-                        <exception postag="J|D"/>
                     </token>
                 </pattern>
                 <message>Voulez-vous écrire <suggestion>cet</suggestion> au lieu de « \1\2 » ?</message>
@@ -8558,7 +8557,7 @@ though, and has since been slightly modified)-->
                         <token>c'</token>
                         <token>est</token>
                     </marker>
-                    <token postag=". f s" postag_regexp="yes"/>
+                    <token postag="N f s" postag_regexp="yes"/>
                 </pattern>
                 <message>Voulez-vous écrire <suggestion>cette</suggestion> au lieu de « \1\2 » ?</message>
                 <example correction="Cette"><marker>C’est</marker> école est grande.</example>
@@ -8570,7 +8569,7 @@ though, and has since been slightly modified)-->
                         <token>c'</token>
                         <token>est</token>
                     </marker>
-                    <token postag=".*p" postag_regexp="yes"/>
+                    <token postag="N . p" postag_regexp="yes"/>
                 </pattern>
                 <message>Voulez-vous écrire <suggestion>ces</suggestion> au lieu de « \1\2 » ?</message>
                 <example correction="Ces"><marker>C’est</marker> ennuis sont temporaires.</example>

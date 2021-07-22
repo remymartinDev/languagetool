@@ -8537,6 +8537,7 @@ though, and has since been slightly modified)-->
                     </marker>
                     <token postag=". m s" postag_regexp="yes" inflected="yes" regexp="yes">&elision_regexp;
                         <exception>incognito</exception>
+                        <exception postag="J|D"/>
                     </token>
                 </pattern>
                 <message>Voulez-vous écrire <suggestion>cet</suggestion> au lieu de « \1\2 » ?</message>

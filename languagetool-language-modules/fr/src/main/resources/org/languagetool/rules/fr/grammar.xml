@@ -52829,6 +52829,18 @@ though, and has since been slightly modified)-->
         </rule>
     </category>
     <category id="CAT_TOURS_CRITIQUES" name="Tours critiqués divers (barbarismes, impropriétés, solécismes, etc.)">
+        <rule id="COMME_SI_QUE" name="comme si que->comme si" default="temp_off">
+            <pattern>
+                <marker>
+                    <token>comme</token>
+                    <token>si</token>
+                    <token inflected="yes">que</token>
+                </marker>
+            </pattern>
+            <message>L'expression '\1 \2 \3' est incorrecte. Préférez '\1 \2'.</message>
+            <suggestion>\1 \2</suggestion>
+            <example correction="comme si">Fais <marker>comme si qu'</marker>on était pas là.</example>
+        </rule>
         <rulegroup id="VERBES_FAMILIERS" name="verbes familiers" default="temp_off">
             <rule>
                 <pattern>

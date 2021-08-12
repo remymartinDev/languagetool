@@ -55794,7 +55794,7 @@ though, and has since been slightly modified)-->
                         <token>
                             <exception>y</exception>
                         </token>
-                    <token postag_regexp="yes" postag="V avoir .*" regexp="yes" inflected="yes">avoir</token>
+                    <token postag_regexp="yes" postag="V avoir .*" inflected="yes">avoir</token>
                     <token>l'</token>
                     <token>air</token>
                     <marker>
@@ -55813,7 +55813,7 @@ though, and has since been slightly modified)-->
                         <token>
                             <exception>y</exception>
                         </token>
-                    <token postag_regexp="yes" postag="V .*" regexp="yes" inflected="yes">passer</token>
+                    <token postag_regexp="yes" postag="V .*" inflected="yes">passer</token>
                     <token>pour</token>
                     <marker>
                         <token regexp="yes">vites?</token>
@@ -55838,7 +55838,7 @@ though, and has since been slightly modified)-->
                     <token postag_regexp="yes" postag="R pers obj .*" min="0"/>
                     <token postag="V inf"/>
                     <token>
-                        <exception postag="V ppa" regexp="yes"/>
+                        <exception postag="V ppa"/>
                     </token>
                 </pattern>
                 <message>On ne met pas d’article devant un jour de la semaine.</message>
@@ -55848,10 +55848,10 @@ though, and has since been slightly modified)-->
                 <example>Il était suffisamment désolé pour me présenter des excuses.</example>
                 <example>À partir de ce moment, Mukhtar livre un combat sans merci pour sauver son honneur</example>
             </rule>
-            <rule id="LE_JOUR_DE_LA_SEMAINE" name="le lundi (lundi)" default="temp_off">
+            <rule id="LE_JOUR_DE_LA_SEMAINE" name="le lundi (lundi)" default="off">
                 <pattern>
                     <marker>
-                        <token regexp="yes">le</token>
+                        <token>le</token>
                         <token regexp="yes">lundi|mardi|mercredi|jeudi|vendredi|samedi|dimanche</token>
                     </marker>
                         <token>

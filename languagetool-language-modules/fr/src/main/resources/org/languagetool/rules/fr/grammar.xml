@@ -45039,19 +45039,6 @@ though, and has since been slightly modified)-->
             <suggestion>très grand</suggestion>
             <example correction="très grand"><marker>extra large</marker></example>
         </rule>
-        <rule id="POLE" name="pole" default="temp_off">
-<!-- deactivated : improved by id="POLE_2" -->
-            <pattern>
-                <token regexp="yes">poles?</token>
-            </pattern>
-            <message>« Pole » peut être considéré comme un anglicisme.</message>
-            <suggestion>tringle</suggestion>
-            <suggestion>perche</suggestion>
-            <suggestion>montant</suggestion>
-            <suggestion>bâton de ski</suggestion>
-            <example correction="tringle|perche|montant|bâton de ski"><marker>pole</marker></example>
-            <example><marker>tringle</marker></example>
-        </rule>
         <rule id="POLL" name="poll">
             <pattern>
                 <token regexp="yes">polls?</token>

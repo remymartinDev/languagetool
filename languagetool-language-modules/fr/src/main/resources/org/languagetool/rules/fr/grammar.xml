@@ -19574,48 +19574,66 @@ though, and has since been slightly modified)-->
             <example>Je ne comprends pas que les enfants veuillent grandir immédiatement et puis qu'ils désirent ensuite être à nouveau des enfants.</example>
             <example>Et les conseils de Papy Péronne, qui dit d'attendre la fin de l'étude, puis de la suivante, et puis que sais-je encore, je me les mets là où ils méritent d'être !</example>
         </rule>
-        <rule id="WRONG_ETRE_VPPA" name="nous (sommes)->avons dansés" default="temp_off">
-            <antipattern>
-                <token postag_regexp="yes" postag="V avoir .*" skip="2"/>
-                <token postag_regexp="yes" postag="V etre ppa .*"/>
-            </antipattern>
-            <antipattern>
-                <token postag_regexp="yes" postag="R pers obj.*"/>
-                <token postag_regexp="yes" postag="V etre.*"/>
-                <token postag_regexp="yes" postag="V ppa.*" regexp="yes" inflected="yes">&verbespronominaux_SE;|&verbespronominaux_S_elision;</token>
-            </antipattern>
-            <antipattern>
-                <token postag_regexp="yes" postag="V etre.*"/>
-                <token postag_regexp="yes" postag="V ppa.*" regexp="yes" inflected="yes">&verbesauxiliaire_etre;|&verbesauxiliaire_etre_et_avoir;</token>
-            </antipattern>
-            <antipattern>
-                <token postag_regexp="yes" postag="V etre (inf|ppr|ppa.*|.*3.*)"/>
-                <token postag_regexp="yes" postag="V ppa.*" regexp="yes" inflected="yes">&verbestransitifsdirects_gpe1;|&verbestransitifsdirects_gpe2;|&verbestransitifsdirects_gpe3;</token>
-            </antipattern>
-            <antipattern>
-                <token postag_regexp="yes" postag="V etre (inf|ppr|ppa.*|.*3.*)"/>
-                <token postag_regexp="yes" postag="V ppa.*" regexp="yes" inflected="yes">&verbestransitifsindirects_gpe1;|&verbestransitifsindirects_gpe2;|&verbestransitifsindirects_gpe3;</token>
-            </antipattern>
-            <pattern>
-                <marker>
-                    <token postag_regexp="yes" postag="V etre .*"/>
-                </marker>
-                <token postag_regexp="yes" postag="V ppa .*"/>
-            </pattern>
-            <message>Le participe passé '\2' se conjugue avec l'auxiliaire 'avoir'.</message>
-            <suggestion><match no="1" postag="(V etre) (.*)" postag_regexp="yes" postag_replace="V avoir $2">avoir</match></suggestion>
-            <example correction="avons">Nous <marker>sommes</marker> dansés.</example>
-            <example correction="a">Il <marker>est</marker> dormi.</example>
-            <example>Ils ont dansé toute la nuit.</example>
-            <example>La Salsa est dansée partout dans le monde.</example>
-            <example>Je me suis laissé dire que tu arriverais en retard.</example>
-            <example>Est-ce que Tom aussi y est allé ?</example>
-            <example>Le site est en dehors de la ville mais il est desservi par les transports en commun.</example>
-            <example>Il est nommé Directeur du Centre d'Affaires.</example>
-            <example>Il est interdit de laisser son cadenas sur le casier après son départ du centre sportif.</example>
-            <example>Il y a deux jours, je suis tombée sur le billet de mon ami blogueur.</example>
-            <example>Nous sommes devenus, depuis deux ou trois ans, des fournisseurs de systèmes intégrés.</example>
-        </rule>
+        <rulegroup id="WRONG_ETRE_VPPA" name="nous (sommes)->avons dansés">
+             <rule default="temp_off">
+                <antipattern>
+                    <token postag_regexp="yes" postag="V avoir .*"/>
+                    <token postag="V ppa .*" postag_regexp="yes" regexp="yes" inflected="yes">aller|apparaître|arriver|décéder|issir|mourir|(re)?naître|(re)?partir|.*entrer|rester|.*tomber|(re|par)?venir</token>
+                    <token postag="(D|R).*|Z" postag_regexp="yes"/>
+                </antipattern>
+                <pattern>
+                    <marker>
+                        <token postag_regexp="yes" postag="V avoir .*"/>
+                    </marker>
+                    <token postag="V ppa .*" postag_regexp="yes" regexp="yes" inflected="yes">aller|apparaître|arriver|décéder|issir|mourir|(re)?naître|(re)?partir|.*entrer|rester|.*tomber|(re|par)?venir</token>
+                </pattern>
+                <message>Le participe passé '\2' se conjugue avec l'auxiliaire 'avoir'.</message>
+                <suggestion><match no="1" postag="(V avoir) (.*)" postag_regexp="yes" postag_replace="V etre $2">être</match></suggestion>
+                <example correction="sommes">Nous <marker>avons</marker> allés.</example>
+            </rule>
+            <rule default="off">
+                <antipattern>
+                    <token postag_regexp="yes" postag="V avoir .*" skip="2"/>
+                    <token postag_regexp="yes" postag="V etre ppa .*"/>
+                </antipattern>
+                <antipattern>
+                    <token postag_regexp="yes" postag="R pers obj.*"/>
+                    <token postag_regexp="yes" postag="V etre.*"/>
+                    <token postag_regexp="yes" postag="V ppa.*" regexp="yes" inflected="yes">&verbespronominaux_SE;|&verbespronominaux_S_elision;</token>
+                </antipattern>
+                <antipattern>
+                    <token postag_regexp="yes" postag="V etre.*"/>
+                    <token postag_regexp="yes" postag="V ppa.*" regexp="yes" inflected="yes">&verbesauxiliaire_etre;|&verbesauxiliaire_etre_et_avoir;</token>
+                </antipattern>
+                <antipattern>
+                    <token postag_regexp="yes" postag="V etre (inf|ppr|ppa.*|.*3.*)"/>
+                    <token postag_regexp="yes" postag="V ppa.*" regexp="yes" inflected="yes">&verbestransitifsdirects_gpe1;|&verbestransitifsdirects_gpe2;|&verbestransitifsdirects_gpe3;</token>
+                </antipattern>
+                <antipattern>
+                    <token postag_regexp="yes" postag="V etre (inf|ppr|ppa.*|.*3.*)"/>
+                    <token postag_regexp="yes" postag="V ppa.*" regexp="yes" inflected="yes">&verbestransitifsindirects_gpe1;|&verbestransitifsindirects_gpe2;|&verbestransitifsindirects_gpe3;</token>
+                </antipattern>
+                <pattern>
+                    <marker>
+                        <token postag_regexp="yes" postag="V etre .*"/>
+                    </marker>
+                    <token postag_regexp="yes" postag="V ppa .*"/>
+                </pattern>
+                <message>Le participe passé '\2' se conjugue avec l'auxiliaire 'avoir'.</message>
+                <suggestion><match no="1" postag="(V etre) (.*)" postag_regexp="yes" postag_replace="V avoir $2">avoir</match></suggestion>
+                <example correction="avons">Nous <marker>sommes</marker> dansés.</example>
+                <example correction="a">Il <marker>est</marker> dormi.</example>
+                <example>Ils ont dansé toute la nuit.</example>
+                <example>La Salsa est dansée partout dans le monde.</example>
+                <example>Je me suis laissé dire que tu arriverais en retard.</example>
+                <example>Est-ce que Tom aussi y est allé ?</example>
+                <example>Le site est en dehors de la ville mais il est desservi par les transports en commun.</example>
+                <example>Il est nommé Directeur du Centre d'Affaires.</example>
+                <example>Il est interdit de laisser son cadenas sur le casier après son départ du centre sportif.</example>
+                <example>Il y a deux jours, je suis tombée sur le billet de mon ami blogueur.</example>
+                <example>Nous sommes devenus, depuis deux ou trois ans, des fournisseurs de systèmes intégrés.</example>
+            </rule>
+        </rulegroup>
         <rulegroup id="INFINITIFS_DE_SUITE" name="deux/trois infinitifs de suite">
             <rule>
                 <antipattern>

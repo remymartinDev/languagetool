@@ -63466,15 +63466,36 @@ though, and has since been slightly modified)-->
             <suggestion>n.</suggestion>
             <example correction="nº|n.">Le <marker>no.</marker> 4.</example>
         </rule>
-        <rule id="PALLIER_A" name="pallier à">
-            <pattern>
-                <token inflected="yes">pallier</token>
-                <token regexp="yes">à|aux?</token>
-            </pattern>
-            <message>« Pallier à quelque chose » est une expression fautive. Employez <suggestion>\1</suggestion> (sans « à »).</message>
+        <rulegroup id="PALLIER_A" name="pallier à">
             <url>http://www.academie-francaise.fr/pallier</url>
-            <example correction="pallier"><marker>pallier à</marker> quelque chose</example>
-        </rule>
+            <rule>
+                <pattern>
+                    <token inflected="yes">pallier</token>
+                    <token>à</token>
+                </pattern>
+                <message>'Pallier' est un verbe transitif, on ne l'emploie donc pas avec la préposition '\2'.</message>
+                <suggestion>\1</suggestion>
+                <example correction="pallier">Nous avons dû <marker>pallier à</marker> l'absence de scours.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token inflected="yes">pallier</token>
+                    <token>au</token>
+                </pattern>
+                <message>'Pallier' est un verbe transitif, on ne l'emploie donc pas avec la préposition '\2'.</message>
+                <suggestion>\1 le</suggestion>
+                <example correction="pallier le">Nous avons dû <marker>pallier au</marker> plus pressé.</example>
+            </rule>
+            <rule>
+                <pattern>
+                    <token inflected="yes">pallier</token>
+                    <token>aux</token>
+                </pattern>
+                <message>'Pallier' est un verbe transitif, on ne l'emploie donc pas avec la préposition '\2'.</message>
+                <suggestion>\1 les</suggestion>
+                <example correction="pallier les">Nous avons dû <marker>pallier aux</marker> plus urgents.</example>
+            </rule>
+        </rulegroup>
         <rule id="LA_MADAME" name="la madame">
             <pattern>
                 <token regexp="yes">la|les</token>

@@ -61176,6 +61176,10 @@ though, and has since been slightly modified)-->
         </rulegroup>
         <rulegroup id="SI_CI_SY" name="confusions si_ci_s'y">
             <antipattern>
+                <token case_sensitive="yes">Si</token>
+                <token regexp="yes">[A-Z].*</token>
+            </antipattern>
+            <antipattern>
                 <token regexp="yes">de|pa[rs]|-|comme|fai(te)?s|pour</token>
                 <token skip="1">ci</token>
                 <token regexp="yes">de|pa[rs]|-|comme|fai(te)?s|pour</token>
@@ -61203,7 +61207,7 @@ though, and has since been slightly modified)-->
                 <token>si</token>
                 <token postag="(R pers|J|A) .*" postag_regexp="yes"/>
             </antipattern>
-             <rule>
+            <rule><!--1-->
                 <pattern>
                     <token>ci</token>
                     <token regexp="yes">annexé|après|contre|devant|derrière|jointe?s?|incluse?s?|desso?us|gît</token>
@@ -61213,7 +61217,7 @@ though, and has since been slightly modified)-->
                 <example correction="ci-joint">Voici <marker>ci joint</marker> la photo.</example>
                 <example>à ce moment-ci de la journée.</example>
             </rule>
-             <rule>
+            <rule><!--2-->
                 <pattern>
                     <token>si</token>
                     <token>-</token>
@@ -61223,7 +61227,7 @@ though, and has since been slightly modified)-->
                 <suggestion>ci-\3</suggestion>
                 <example correction="ci-joint">Voici <marker>si-joint</marker> la photo.</example>
             </rule>
-             <rule>
+            <rule><!--3-->
                 <pattern>
                     <marker>
                         <token>si</token>
@@ -61236,7 +61240,7 @@ though, and has since been slightly modified)-->
                 <suggestion>ci-\3</suggestion>
                 <example correction="ci-dessous">Voir le document <marker>si dessous</marker>.</example>
             </rule>
-             <rule default="temp_off">
+            <rule><!--4-->
                 <pattern>
                     <token regexp="yes">celui|celles?|ceux|de|par</token>
                     <token>ci</token>
@@ -61245,7 +61249,12 @@ though, and has since been slightly modified)-->
                 <suggestion>\1-\2</suggestion>
                 <example correction="celui-ci">Veux-tu parler de <marker>celui ci</marker>?</example>
             </rule>
-            <rule default="temp_off">
+            <rule default="temp_off"><!--5-->
+            <antipattern>
+                <token>beaucoup</token>
+                <token>de</token>
+                <token>si</token>
+            </antipattern>
                 <pattern>
                     <marker>
                         <token case_sensitive="yes" regexp="yes">celui|celles?|ceux|de|par</token>
@@ -61257,10 +61266,11 @@ though, and has since been slightly modified)-->
                 <message>'Si' exprime une condition, on utilise l'adverbe 'ci' pour former ce mot.</message>
                 <suggestion>\1-ci</suggestion>
                 <example correction="celui-ci">Veux-tu parler de <marker>celui si</marker>?</example>
+                <example>Il évoque la figure de Si Kaddour Ben Ghabrit, directeur de l'Institut musulman de la Mosquée de Paris.</example>
                 <example>On ne le reverra pas de si tôt.</example>
                 <example>Il ne se contentera pas de si peu.</example>
             </rule>
-             <rule default="temp_off">
+            <rule><!--6-->
                 <pattern>
                     <token regexp="yes">cette|ce[st]?</token>
                     <token postag="J.*" postag_regexp="yes" min="0"/>
@@ -61275,7 +61285,7 @@ though, and has since been slightly modified)-->
                 <example correction="voiture-ci">Cette <marker>voiture ci</marker>.</example>
                 <example correction="voiture-ci">Cette belle <marker>voiture ci</marker>.</example>
             </rule>
-             <rule>
+            <rule><!--7-->
                 <pattern>
                     <token regexp="yes">comme|pas|fai(te)?s</token>
                     <token regexp="yes">[-‑‐]</token>
@@ -61285,7 +61295,7 @@ though, and has since been slightly modified)-->
                 <suggestion>\1 \3</suggestion>
                 <example correction="comme ci">Faites <marker>comme-ci</marker>.</example>
             </rule>
-             <rule default="temp_off">
+            <rule default="temp_off"><!--8-->
                 <pattern>
                     <marker>
                         <token>ci
@@ -61300,7 +61310,7 @@ though, and has since been slightly modified)-->
                 <example correction="si">Il venait <marker>ci</marker> souvent que nous ne le remarquions plus.</example>
                 <example>Cette fois-ci vous n'avez pas de raison de vous mettre en colère.</example>
             </rule>
-             <rule default="temp_off">
+            <rule><!--9-->
                 <pattern>
                     <token>,</token>
                     <marker>
@@ -61311,7 +61321,7 @@ though, and has since been slightly modified)-->
                 <suggestion>si</suggestion>
                 <example correction="si">Elle supposait que depuis le temps qu'ils se supportaient, <marker>ci</marker> quelque chose dérangeait Lew, il le lui dirait.</example>
             </rule>
-             <rule default="temp_off">
+            <rule><!--10-->
                 <pattern>
                     <marker>
                         <token>s'</token>
@@ -61325,7 +61335,7 @@ though, and has since been slightly modified)-->
                 <example correction="si">Il la trouvait <marker>s'y</marker> passionnante qu'il l'aurait écoutée pendant des heures.</example>
                 <example correction="si">Il venait <marker>s'y</marker> souvent que nous ne le remarquions plus.</example>
             </rule>
-             <rule default="temp_off">
+            <rule><!--11-->
                 <pattern>
                     <token postag="P" postag_regexp="yes">
                         <exception>sauf</exception> </token>
@@ -61339,7 +61349,7 @@ though, and has since been slightly modified)-->
                 <suggestion>s'y</suggestion>
                 <example correction="s'y">Cette situation, elle redoutait de <marker>si</marker> confronter.</example>
             </rule>
-             <rule default="temp_off">
+            <rule default="temp_off"><!--12-->
                 <pattern>
                     <token regexp="yes">de|pa[rs]|-|comme</token>
                     <marker>
@@ -61354,7 +61364,7 @@ though, and has since been slightly modified)-->
                 <example correction="ci">Dans l'expectative, elle va de <marker>si</marker> de là, glâner des informations.</example>
                 <example>Pas si loin de là s'étirait le fleuve Zio.</example>
             </rule>
-             <rule default="temp_off">
+            <rule><!--13-->
                 <pattern>
                     <token regexp="yes">de|pa[rs]|-|comme</token>
                     <marker>
@@ -61369,7 +61379,7 @@ though, and has since been slightly modified)-->
                 <suggestion>ci</suggestion>
                 <example correction="ci">Dans l'expectative, elle va de <marker>s'y</marker> de là, glâner des informations.</example>
             </rule>
-             <rule default="temp_off">
+            <rule><!--14-->
                 <pattern>
                     <token postag="V.*|A|P" postag_regexp="yes">
                         <exception regexp="yes">de|par|en</exception>
